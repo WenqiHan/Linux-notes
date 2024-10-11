@@ -1,0 +1,455 @@
+Cybersecurity Notes
+
+- `man [command]` to read the manual for any command.
+
+Navigation in Linux
+Commands List:
+- ls
+- cd
+- pwd
+- mkdir
+- rmdir
+
+- `ls`
+  - Purpose: Lists the contents of a directory.
+  - Usage: `ls` for basic listing, `ls -l` for detailed listing, `ls -a` to include hidden files.
+  - Notes: Essential for quickly viewing what's in the current directory.
+
+- `cd`
+  - Purpose: Changes the current directory.
+  - Usage: `cd [directory path]` to move to a specific directory, `cd ..` to move up one directory level, `cd` or `cd ~` to return to the home directory. `cd Documents` (relative path) cd /path/to/directory (absolute path)
+  - Notes: Most commonly used for navigating through the filesystem.
+
+- `pwd`
+  - Purpose: Prints the current directory path.
+  - Usage: `pwd` to display the full path of the current directory.
+  - Notes: Useful for confirming your current location in the filesystem.
+
+create:
+- `mkdir`
+  - Purpose: Creates a new directory.
+  - Usage: `mkdir [directory name]` to create a new directory in the current location.
+  - Notes: Handy for organizing files into new folders.
+
+- `touch`
+  - Purpose: make an empty file.
+  - Usage: `touch newfile.txt` to make `newfile.txt`
+
+Delete:
+- `rmdir`
+  - Purpose: Removes a directory.
+  - Usage: `rmdir [directory name]` to delete an empty directory.
+  - Notes: Used for cleaning up and removing unused directories. Note that the directory must be empty.
+
+- `rm`
+  - Purpose: remove a file
+  - Usage: `rm -r` to remove a directory. `rm -r myfolder`Removes a directory and its contents recursively.
+
+copy:
+- `cp`
+  - Purpose: copy files and directory
+  - Usage: `cp file.txt /newfolder/` copies file to /newfolder/.
+
+Move:
+- `mv`
+  - Purpose: move or rename file
+  - usage: `mv oldname.txt newname.txt` renames the file.
+
+Read:
+- `cat`
+  - Purpose: show what is in the file
+  - Usage: `cat file.txt` shows file contents on the terminal.
+
+- `less`
+  - Purpose: allows you to scroll through a file.
+  - Usage: `less filename.txt`
+  - Notes: control -Z to exit.
+
+Update:
+- `nano`
+  - Purpose: Opens a file in the Nano text editor.
+  - Usage:`nano filename.txt` 
+  - Notes: echo `"Text" &gt;&gt; filename.txt` Appends text to a file.
+  
+
+File permission:
+ 1. Use `ls -l` to view file permissions.
+ 2. Permissions are shown as -rwxrwxrwx
+ Divided into User (u), Group (g), and Others (o).
+ r — Read (4)
+ w — Write (2)
+ x — Execute (1)
+
+chomd:
+ Changing Permissions:
+  - chmod u+x filename — Adds perform permission for the user.
+  - chmod g-w filename — Removes write permission from the group.
+  - chmod 755 filename — Sets permissions to rwxr-xr-x
+
+Sudo:
+  - `sudo [command]` Runs a command with superuser privileges. 
+  - `sudo apt update` Updates package lists.
+  - `sudo apt-get upgrade` Upgrade installed packages to the latest version.
+  - `sudo apt-get install` Install new software packages.
+  - `sudo apt-get install nmap` installs nmap tool.
+  - `sudo apt-get remove` Remove software packages.
+  - `sudo su` to get in 
+  - `sudo nano /root/filename.txt` to create files
+  - `sudo visudo` to check the sudoers
+  - `sudo ls /root` to list files
+
+- `su -` 
+  - Notes: means swich user to root user which allows you to do more stuff
+
+Networking:
+- `ifconfig`
+  - used either to assign network-interface or display current interface info
+
+- `ip'
+  - shows and manipulates routing, devies and tunnels
+
+- `netstat`
+  - uesd for configurations, troubleshooting, and monitoring over a network
+
+- `iwconfig`
+  - display and changes network parameters of the network interface, specific to the wireless operation
+  - iwconfig `interface` [options]
+
+- `traceroute`
+  - traces ip address
+  - traceroute `options`[hostname/ip]
+
+- `tracepath`
+  - shows the hop number, IP address or resolved hostname, and the round-trip time (RTT) for each hop
+  - tracepath [options] [hostname/IP]
+
+- `ping`
+  - TCP command that checks connectivity, reachability, and name resolution
+  - ping `options` host [hostname/ip]
+
+- `mtr`
+  - `my trace rout` sends real-time network quality checks
+  - mtr [options] [hostname/IP]
+
+- `tcpdump`
+  - package sniffer/network security tool. analyzes network traffic, troubleshoots and monitors network
+  - tcpdump [options] [filter]
+
+- `ss`
+  -shows all TCP sockets in the LISTEN state waiting for incoming connections.
+  - ss [options] [filter]
+
+- `whois`
+  - queries network info and fetches domain ownership details
+  - Ex: whois google.com
+
+- `iftop`
+  - views network connections and bandwidth usage in real time
+  - primary usage: sudo iftop
+
+- dig: interogates and looks up DNS servers
+  - dig 'options' [domain] [record type] [DNS server]
+
+- nslookup: offers fundamental DNS data
+  - DNS lookup for domain: nslookup 'domain' 'DNS server'
+
+- route: views and manipulates the IP routing table
+  - route 'options' [subcommand] [arguments]
+
+- host: looks up info through the DNS
+  - host 'options' [hostname/IP]
+
+- hostname: Displays and changes the system's hostname and domain. Identifies devices in a network
+  - hostname 'options' [name] to control what the command displays
+  - sudo hostname [name]: to temporarily change system hostname
+            Check by running 'hostname' once more
+
+- arp: displays IP-MAC address mapping
+  - arp 'options' [hostname/IP]
+
+Downloading files:
+Commands that test downloading speeds
+- wget: wget [options] [URL]
+- curl: curl [options] [URL]
+
+- `New-Item -ItemType File -Name "filename"`: to create a file in pwsh (ubuntu)
+- `New-Item -ItemType Directory -Name "foldername"`: to create a folder (ubuntu)
+
+Git:
+Initialize Respirtory:
+ - `git init` - to initialize respirtory
+Configure Git:
+ - `git config` --global user.name "your name" - to set up your name
+ - `git config` --global user.email "youremail@example.com" - to set up your email
+ Check Status:
+ - `git status`
+ Stage Files:
+ - `git add filename` - to add a file
+ - `git add .` - stages all the changes in the current directory
+ Commit changes:
+ - `git commit -m "message" - to commit
+ View Log:
+ - `git log` 
+ Create and Switch Branch:
+ - `git checkout -b branch-name` 
+ Switch Branch:
+ - `git checkout branch-name`
+ Merge Branches:
+ - `git merge branch-name`
+ Delete Branch:
+ - `git branch -d branch-name
+ Undo Changes in Working Directory:
+o Using git restore (newer versions):
+ - `git restore filename`
+o Using git checkout (older versions):
+ - `git checkout -- filename`
+ Remove Cached File:
+ - `git rm --cached filename`
+ Set Alias:
+ - `git config --global alias.alias-name command`
+ Tag a Commit:
+ - `git tag -a v1.0 -m "message`
+ Reset Commits:
+ - `git reset --soft HEAD~1`
+ - `git reset --hard HEAD~1`
+
+What is a Bash Script?
+ - A bash script is a plain and simple text file containing a list of commands that are runned by the Bash shell. 
+ The Bash shell is a program that lets you comtrol the computer by typing commands.
+ - commonly used on Linux systems.
+ Uses of Bash scripts:
+ - Automating tasks (e.g., copying files, checking disk space).
+ - Managing files and directories.
+ - Running system updates or backups.
+ - Making repetitive tasks faster and easier.
+How to write a simple bash command?
+ - Usually begins with a shebang(#!)that specifies the interpreter to be used.
+ It looks like this in Bash:
+ #!/bin/bash
+
+ Using Variables in bash:
+ #!/bin/bash
+ # A simple script demonstrating variables
+
+ NAME="Wenqi Han"
+ echo "Hello, $NAME!"
+
+ The output would be:
+ Hello, Wenqi Han!
+
+ Control Structures:
+ - If-Else Statement:
+ #!/bin/bash
+ # If-else example
+ AGE=20
+ if [ $AGE -ge 18 ]; then
+  echo "You are an adult."
+ else
+  echo "You are not an adult."
+ fi
+
+ - for Loop:
+ #!/bin/bash
+ # For loop example
+
+ for i in 1 2 3 4 5; do
+  echo "Iteration $i"
+ done
+
+ - While Loop:
+ #!/bin/bash
+ # While loop example
+
+ counter=1
+ while [ $counter -le 5 ]; do
+  echo "Counter: $counter"
+  ((counter++))
+ done
+
+Key Bash Commands:
+ - Echo: prints text or variable to the terminal.
+ echo "Hello, World!"
+ - Read: Gets user input
+ echo "Enter your name:___"
+ read NAME
+ echo "Hello, $NAME!"
+ - touch: creates a new File
+ touch myfile.txt
+ - mkdir: creates a new directory
+ mkdir mydirectory
+ - ls: list files and directories
+ ls -l
+ - df: displays disk space usage.
+ df -h
+ - rm: removes a file or directory
+ rmdir mydirectory
+ rm myfile.txt
+
+Small Bash script that checks if a directory exists, and if not, creates it:
+ #!/bin/bash
+ # Script to check if a directory exists, and create it if not
+
+ DIRECTORY="myfolder"
+
+ if [ -d "$DIRECTORY" ]; then
+  echo "Directory '$DIRECTORY' already exists."
+ else
+  echo "Directory '$DIRECTORY' does not exist. Creating it now."
+  mkdir "$DIRECTORY"
+  echo "Directory '$DIRECTORY' created."
+ fi
+
+System Monitoring
+What is system monitoring? Why is it important for maintaining a healthy Linux system?
+ - The process of keeping track of a computer's performance and resource usage, such as CPU, memory, and disk space. 
+ Monitoring is important to ensure the system is running efficiently and to fix any issues before they cause major problems.
+Key Tools for Linux Syste Monitoring:
+ - `top`
+ Description: displays real-time system processes and resource usages.
+ Usage: To see an overview of CPU, memory usage, and active processes. 
+ Notes: it updates every few seconds, showing process IDs (PIDs), memory usage, CPU consumption, and more.
+ - `htop`
+ Description: A better version of `top` with a more user-friendly interface which is color coded.
+ Usage: To monitor system resources interactively. It offers features like process management.
+ Notes: Navigate with arrow keys to view processes, press F10 to quit.
+ - `df`
+ Description: Displays disk space usage one file system.
+ Usage: Helps monitor available disk space and percentage used on each mounted filesystem.
+ Notes: The -h flag behind `df` makes the output human-readable, displaying sizes in MB/GB.
+ - `uptime` 
+ Description: Shows how long the system has been running with the load average.
+ Usage: To see the current time, system uptime, number of users, and the system's load averages for the last 1, 5, and 15 min.
+Log Monitoring:
+ - `journalctl`
+ Usage: displays logs gernerated by system services. It allows filtering by time, priority, and unit.
+ Notes: add -xe to view the most recent logs with priority levels and context
+ - `/var/log`
+ Description: A directory where system logs are stored.
+ Usage: Logs are saved in files like /var/log/syslog (general system messages) and /var/log/auth.log (authentication-related logs).
+ Notes: `cat /var/log/syslog` to view the system log.
+Self-Made Instructions: 
+ Step-by-Step Guide for Monitoring System Resources and Logs
+ Step 1:
+ - Use `htop` to see live CPU, memory, and process usage
+ - Navigate with arrow keys to explore running processes.
+ - Press `q` to quit.
+ Step 2:
+ - Use `df -h` to check disk space in human-readable format.
+ Step 3:
+ - Use `uptime` to check system uptime and load average.
+ Step 4:
+ - Use `journalctl -xe` to view logs for debugging in detail.
+ Step 5:
+ - Use `cat` to read sppecific logs, such as authentication logs. (cat /var/log/auth.log)
+
+System Security:
+Basic System Security Principles on Linux:
+ Linux security is based on controlling user access to files, programs, and system resources. Th key pinciples include:
+ - Least Privilege: Give users and processes only the perission they need.
+ - Regular updates: Keep the system updated by applying security patches regularly using package managers.
+ - User Management: Manage users and remove or disable uneeded accounts. Use strong passwords and enforce passwod policies.
+ - File Permissions: Control file and directory access through Linux's permission system.
+ - Firewall: Used to control incoming and outgoing traffic.
+ - Audit logs: Check it for any suspicious activity or unaurhorized access attempts. 
+
+File Permissions in Linux:
+ Linux's system of permissions that defines what users can do with files and directories include:
+ - read (r)
+ - Write (w)
+ - Execute (x)
+ Permissions are divided into three categories:
+ - Owner: The user who owns the file.
+ - Group: A group of users that the file is assigned to.
+ - Others: All other users on the system.
+
+ Use ls -l to display file permissions
+ Example output: `-rwxr-xr-- 1 owner group 1234 Oct 21 10:30 myfile.sh`
+ This shows the permissions for the owner (rwx), group (r-x), and others (r--).
+
+ chmod:
+ - changes the permissions of a file or directory.
+ - To make a file executable (allow it to run as a program)
+ - `chmod +x filename`
+
+ chown:
+ - changes the ownership of a file or a directory.
+ - To change the owner of a file: `chown username filename`
+ - To change both owner and group: `chown username:groupname filename`
+
+User Management:
+ - `adduser` to create a new user with a home directory and prompts for a password.
+ sudo adduser username
+ - `usermod` to modify user settings such as assign them to a group.
+ sudo usermod -aG groupname username
+ - `deluser` to delete a user, to also remove the suer's home directory.
+ sudo deluser username & sudo deluser --remove-home username
+ 
+ Assigning Permissions to Users:
+ - file and folder permissions are managed using chomd, chown, and uer group.
+ - to give specific users access to a file or folder:
+ Change ownership with `chown`
+ Add users to groups with `usermod`
+ Modify the file’s permissions using `chmod` to define which users or groups have read, write, or execute access.
+
+Firewall Basics: 
+ UFW (Uncomplicated Firewall):
+ - It is a user-friendly for managing firewall rules on linux. 
+ - Used to manage the iptables firewall and control which parts and services are accessible.
+ - `sudo ufw enable` to enable firewall
+ - `sudo ufw allow 80/tcp` to allow a port
+ - `sudo ufw deny 21/tcp` to deny a port
+ - `sudo ufw status` to check firewall status
+
+Self-Made Instructions:
+ Securing a folder: `chmod 700 foldername`
+ 1. Enable the firewall 
+ - `sudo ufw enable`
+ 2. Allow traffic on port 22 for SSH access:
+ - `sudo ufw allow 22/tcp`
+ 3. deny traffic on port 21 (FTP)
+ - `sudo ufw deny 21/tcp`
+
+Explanation of the Script Concepts (from Least Complex to Most Complex):
+ 1. Comments (#):
+ - In the script, anything written after a # symbol is ignored by the computer. 
+ It’s called a comment. Comments are used to explain the code to anyone reading it, so they know what each part does. 
+ Comments are important to help you understand what you are working on or were trying to do in your code and act as reminders. 
+ here is no limit to the amount of comments or their detail you should or could have.
+ 
+ 2. echo:
+ - The echo command is used to display a message on the screen. 
+ It's like making the computer "say" something to the user. These are useful for you display prompts, comments or instructions to the user.
+ The echo command is also a useful tool to test your code. 
+ Putting in an echo both inside and outside an if block can help you see what is working in your code or what is broken. 
+ echo statements used fir troubleshooting should always be removed when troubleshooting is complete.
+ 
+ 3. Variables:
+ - Variables are like containers that store values. In this script, age_years and age_days are variables.
+ read -p "Enter your age in years: " age_years takes the user's input and stores it in the age_years variable.
+ Tip: you can use an echo to display the value of a variable for troubleshooting purposes.
+ 
+ 4. if Statement:
+ - The if statement is used to check if something is true. It helps us control which parts of the script run based on a condition.
+ For example, we use if to make sure the user’s input is valid.
+ 
+ 5. Regex (^[0-9]+$):
+ - This part is a pattern used to match text. It’s called a "regular expression" (or regex).
+ ^[0-9]+$ means that the input must be made up of digits (0-9), and nothing else. This makes sure the user only types numbers.
+ ^ means "start of input" and $ means "end of input". [0-9] means any digit, and + means "at least one or more".
+ 
+ 6. [[ ]] and !~:
+ - [[ ]] is used to test conditions in Bash. It helps make the script safer and easier to write.
+ !~ means "does not match". In this script, [[ ! $age_years =~ ^[0-9]+$ ]] checks if the input does not match the pattern (meaning it’s not a number).
+ 
+ Notes: Other symbols to explore are ==, |&nbsp;, &nbsp;&gt;&nbsp;, &nbsp;&lt;&nbsp;, -eq, -ne, -gt.
+ We refer to these symbols as "Conditionals" and there are many more conditionals than what I have listed here.
+ 
+ 7. Arithmetic Calculation ($(( ))):
+ - $(( )) is used to do math calculations in Bash.
+ age_days=$((age_years * 365)) calculates how many days are in the given number of years. It multiplies age_years by 365.
+
+ 8. Exit Code (exit 1):
+ exit 1 ends the script. The number 1 is an error code, which means something went wrong.
+ If the user types something that’s not a valid number, the script stops here.
+
+
