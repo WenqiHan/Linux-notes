@@ -1,5 +1,6 @@
 # Linux notes
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 Cybersecurity Notes
 
@@ -180,3 +181,6 @@ Commands that test downloading speeds
 
 >>>>>>> Stashed changes
 
+=======
+git init - to initialize respirtory
+>>>>>>> Stashed changes
