@@ -1,6 +1,3 @@
-# Linux notes
-<<<<<<< Updated upstream
-=======
 Cybersecurity Notes
 
 - `man [command]` to read the manual for any command.
@@ -178,5 +175,169 @@ Commands that test downloading speeds
 - `New-Item -ItemType File -Name "filename"`: to create a file in pwsh (ubuntu)
 - `New-Item -ItemType Directory -Name "foldername"`: to create a folder (ubuntu)
 
->>>>>>> Stashed changes
+Git:
+Initialize Respirtory:
+ - `git init` - to initialize respirtory
+Configure Git:
+ - `git config` --global user.name "your name" - to set up your name
+ - `git config` --global user.email "youremail@example.com" - to set up your email
+ Check Status:
+ - `git status`
+ Stage Files:
+ - `git add filename` - to add a file
+ - `git add .` - stages all the changes in the current directory
+ Commit changes:
+ - `git commit -m "message" - to commit
+ View Log:
+ - `git log` 
+ Create and Switch Branch:
+ - `git checkout -b branch-name` 
+ Switch Branch:
+ - `git checkout branch-name`
+ Merge Branches:
+ - `git merge branch-name`
+ Delete Branch:
+ - `git branch -d branch-name
+ Undo Changes in Working Directory:
+o Using git restore (newer versions):
+ - `git restore filename`
+o Using git checkout (older versions):
+ - `git checkout -- filename`
+ Remove Cached File:
+ - `git rm --cached filename`
+ Set Alias:
+ - `git config --global alias.alias-name command`
+ Tag a Commit:
+ - `git tag -a v1.0 -m "message`
+ Reset Commits:
+ - `git reset --soft HEAD~1`
+ - `git reset --hard HEAD~1`
 
+What is a Bash Script?
+ - A bash script is a plain and simple text file containing a list of commands that are runned by the Bash shell. 
+ The Bash shell is a program that lets you comtrol the computer by typing commands.
+ - commonly used on Linux systems.
+ Uses of Bash scripts:
+ - Automating tasks (e.g., copying files, checking disk space).
+ - Managing files and directories.
+ - Running system updates or backups.
+ - Making repetitive tasks faster and easier.
+How to write a simple bash command?
+ - Usually begins with a shebang(#!)that specifies the interpreter to be used.
+ It looks like this in Bash:
+ #!/bin/bash
+
+ Using Variables in bash:
+ #!/bin/bash
+ # A simple script demonstrating variables
+
+ NAME="Wenqi Han"
+ echo "Hello, $NAME!"
+
+ The output would be:
+ Hello, Wenqi Han!
+
+ Control Structures:
+ - If-Else Statement:
+ #!/bin/bash
+ # If-else example
+ AGE=20
+ if [ $AGE -ge 18 ]; then
+  echo "You are an adult."
+ else
+  echo "You are not an adult."
+ fi
+
+ - for Loop:
+ #!/bin/bash
+ # For loop example
+
+ for i in 1 2 3 4 5; do
+  echo "Iteration $i"
+ done
+
+ - While Loop:
+ #!/bin/bash
+ # While loop example
+
+ counter=1
+ while [ $counter -le 5 ]; do
+  echo "Counter: $counter"
+  ((counter++))
+ done
+
+Key Bash Commands:
+ - Echo: prints text or variable to the terminal.
+ echo "Hello, World!"
+ - Read: Gets user input
+ echo "Enter your name:___"
+ read NAME
+ echo "Hello, $NAME!"
+ - touch: creates a new File
+ touch myfile.txt
+ - mkdir: creates a new directory
+ mkdir mydirectory
+ - ls: list files and directories
+ ls -l
+ - df: displays disk space usage.
+ df -h
+ - rm: removes a file or directory
+ rmdir mydirectory
+ rm myfile.txt
+
+Small Bash script that checks if a directory exists, and if not, creates it:
+ #!/bin/bash
+ # Script to check if a directory exists, and create it if not
+
+ DIRECTORY="myfolder"
+
+ if [ -d "$DIRECTORY" ]; then
+  echo "Directory '$DIRECTORY' already exists."
+ else
+  echo "Directory '$DIRECTORY' does not exist. Creating it now."
+  mkdir "$DIRECTORY"
+  echo "Directory '$DIRECTORY' created."
+ fi
+
+ System Monitoring
+What is system monitoring? Why is it important for maintaining a healthy Linux system?
+ - The process of keeping track of a computer's performance and resource usage, such as CPU, memory, and disk space. 
+ Monitoring is important to ensure the system is running efficiently and to fix any issues before they cause major problems.
+Key Tools for Linux Syste Monitoring:
+ - `top`
+ Description: displays real-time system processes and resource usages.
+ Usage: To see an overview of CPU, memory usage, and active processes. 
+ Notes: it updates every few seconds, showing process IDs (PIDs), memory usage, CPU consumption, and more.
+ - `htop`
+ Description: A better version of `top` with a more user-friendly interface which is color coded.
+ Usage: To monitor system resources interactively. It offers features like process management.
+ Notes: Navigate with arrow keys to view processes, press F10 to quit.
+ - `df`
+ Description: Displays disk space usage one file system.
+ Usage: Helps monitor available disk space and percentage used on each mounted filesystem.
+ Notes: The -h flag behind `df` makes the output human-readable, displaying sizes in MB/GB.
+ - `uptime` 
+ Description: Shows how long the system has been running with the load average.
+ Usage: To see the current time, system uptime, number of users, and the system's load averages for the last 1, 5, and 15 min.
+Log Monitoring:
+ - `journalctl`
+ Usage: displays logs gernerated by system services. It allows filtering by time, priority, and unit.
+ Notes: add -xe to view the most recent logs with priority levels and context
+ - `/var/log`
+ Description: A directory where system logs are stored.
+ Usage: Logs are saved in files like /var/log/syslog (general system messages) and /var/log/auth.log (authentication-related logs).
+ Notes: `cat /var/log/syslog` to view the system log.
+Self-Made Instructions: 
+ Step-by-Step Guide for Monitoring System Resources and Logs
+ Step 1:
+ - Use `htop` to see live CPU, memory, and process usage
+ - Navigate with arrow keys to explore running processes.
+ - Press `q` to quit.
+ Step 2:
+ - Use `df -h` to check disk space in human-readable format.
+ Step 3:
+ - Use `uptime` to check system uptime and load average.
+ Step 4:
+ - Use `journalctl -xe` to view logs for debugging in detail.
+ Step 5:
+ - Use `cat` to read sppecific logs, such as authentication logs. (cat /var/log/auth.log)
