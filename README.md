@@ -182,5 +182,48 @@ Commands that test downloading speeds
 >>>>>>> Stashed changes
 
 =======
+<<<<<<< HEAD
 git init - to initialize respirtory
 >>>>>>> Stashed changes
+=======
+Git:
+Initialize Respirtory:
+ - `git init` - to initialize respirtory
+Configure Git:
+ - `git config` --global user.name "your name" - to set up your name
+ - `git config` --global user.email "youremail@example.com" - to set up your email
+ Check Status:
+ - `git status`
+ Stage Files:
+ - `git add filename` - to add a file
+ - `git add .` - stages all the changes in the current directory
+ Commit changes:
+ - `git commit -m "message" - to commit
+ View Log:
+ - `git log` 
+ Create and Switch Branch:
+ - `git checkout -b branch-name` 
+ Switch Branch:
+ - `git checkout branch-name`
+ Merge Branches:
+ - `git merge branch-name`
+ Delete Branch:
+ - `git branch -d branch-name
+ Undo Changes in Working Directory:
+o Using git restore (newer versions):
+ - `git restore filename`
+o Using git checkout (older versions):
+ - `git checkout -- filename`
+ Remove Cached File:
+ - `git rm --cached filename`
+ Set Alias:
+ - `git config --global alias.alias-name command`
+ Tag a Commit:
+ - `git tag -a v1.0 -m "message`
+ Reset Commits:
+ - `git reset --soft HEAD~1`
+ - `git reset --hard HEAD~1`
+
+
+
+>>>>>>> 6d32471 (Auto stash before rebase of "changes" onto "origin/main")
