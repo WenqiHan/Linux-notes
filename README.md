@@ -1,6 +1,4 @@
 # Linux notes
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
 Cybersecurity Notes
 
@@ -179,13 +177,6 @@ Commands that test downloading speeds
 - `New-Item -ItemType File -Name "filename"`: to create a file in pwsh (ubuntu)
 - `New-Item -ItemType Directory -Name "foldername"`: to create a folder (ubuntu)
 
->>>>>>> Stashed changes
-
-=======
-<<<<<<< HEAD
-git init - to initialize respirtory
->>>>>>> Stashed changes
-=======
 Git:
 Initialize Respirtory:
  - `git init` - to initialize respirtory
@@ -224,6 +215,90 @@ o Using git checkout (older versions):
  - `git reset --soft HEAD~1`
  - `git reset --hard HEAD~1`
 
+What is a Bash Script?
+ - A bash script is a plain and simple text file containing a list of commands that are runned by the Bash shell. 
+ The Bash shell is a program that lets you comtrol the computer by typing commands.
+ - commonly used on Linux systems.
+ Uses of Bash scripts:
+ - Automating tasks (e.g., copying files, checking disk space).
+ - Managing files and directories.
+ - Running system updates or backups.
+ - Making repetitive tasks faster and easier.
+How to write a simple bash command?
+ - Usually begins with a shebang(#!)that specifies the interpreter to be used.
+ It looks like this in Bash:
+ #!/bin/bash
+
+ Using Variables in bash:
+ #!/bin/bash
+ # A simple script demonstrating variables
+
+ NAME="Wenqi Han"
+ echo "Hello, $NAME!"
+
+ The output would be:
+ Hello, Wenqi Han!
+
+ Control Structures:
+ - If-Else Statement:
+ #!/bin/bash
+ # If-else example
+ AGE=20
+ if [ $AGE -ge 18 ]; then
+  echo "You are an adult."
+ else
+  echo "You are not an adult."
+ fi
+
+ - for Loop:
+ #!/bin/bash
+ # For loop example
+
+ for i in 1 2 3 4 5; do
+  echo "Iteration $i"
+ done
+
+ - While Loop:
+ #!/bin/bash
+ # While loop example
+
+ counter=1
+ while [ $counter -le 5 ]; do
+  echo "Counter: $counter"
+  ((counter++))
+ done
+
+Key Bash Commands:
+ - Echo: prints text or variable to the terminal.
+ echo "Hello, World!"
+ - Read: Gets user input
+ echo "Enter your name:___"
+ read NAME
+ echo "Hello, $NAME!"
+ - touch: creates a new File
+ touch myfile.txt
+ - mkdir: creates a new directory
+ mkdir mydirectory
+ - ls: list files and directories
+ ls -l
+ - df: displays disk space usage.
+ df -h
+ - rm: removes a file or directory
+ rmdir mydirectory
+ rm myfile.txt
+
+Small Bash script that checks if a directory exists, and if not, creates it:
+ #!/bin/bash
+ # Script to check if a directory exists, and create it if not
+
+ DIRECTORY="myfolder"
+
+ if [ -d "$DIRECTORY" ]; then
+  echo "Directory '$DIRECTORY' already exists."
+ else
+  echo "Directory '$DIRECTORY' does not exist. Creating it now."
+  mkdir "$DIRECTORY"
+  echo "Directory '$DIRECTORY' created."
+ fi
 
 
->>>>>>> 6d32471 (Auto stash before rebase of "changes" onto "origin/main")
