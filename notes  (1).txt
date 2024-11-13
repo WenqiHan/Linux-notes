@@ -453,4 +453,5 @@ Explanation of the Script Concepts (from Least Complex to Most Complex):
  If the user types something that’s not a valid number, the script stops here.
 
 System VS Process:
-
+- A process is when an input was take in, through a series of functions or changes, the result that turns out will be different.
+- A system
