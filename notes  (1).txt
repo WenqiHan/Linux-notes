@@ -452,4 +452,5 @@ Explanation of the Script Concepts (from Least Complex to Most Complex):
  exit 1 ends the script. The number 1 is an error code, which means something went wrong.
  If the user types something that’s not a valid number, the script stops here.
 
+System VS Process:
 
