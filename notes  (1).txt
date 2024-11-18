@@ -454,4 +454,18 @@ Explanation of the Script Concepts (from Least Complex to Most Complex):
 
 System VS Process:
 - A process is when an input was take in, through a series of functions or changes, the result that turns out will be different.
-- A system
+- A system is 
+
+Octal Notation:
+  Owner Group  Other
+d| rwx |- rwx |- rwx
+
+- = file
+d = directory/folder
+
+r = read (4)
+w = write (2)
+x = execute (1)
+ex: chmod 777 to let all people have permission to read, write and have access of the file.
+    chmod 644 to let the owner have access to read and write, the group and others can only read.
+
