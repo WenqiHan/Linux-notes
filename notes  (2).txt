@@ -1,1 +1,4 @@
-
+OS system:
+- An OS (operating system) is system software that manages computer hardware and software resources and provides commen service for computer programs.
+Differences between Linux and Windows:
+Cost
