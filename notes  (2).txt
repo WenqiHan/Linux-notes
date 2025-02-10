@@ -1,4 +1,8 @@
 OS system:
 - An OS (operating system) is system software that manages computer hardware and software resources and provides commen service for computer programs.
-Differences between Linux and Windows:
-Cost
+A pipe (|) is a way to send the output of one process or command directly into another process or command as input, allowing them to work together in a sequence. It helps to combine multiple actions into a single flow.
+Basic Usage:
+- Pipes are used to chain commands together.
+- Chaining Multiple Commands.
+- Handling Multiple Pipelines in Scripts.
+
